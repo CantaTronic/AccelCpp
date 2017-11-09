@@ -12,7 +12,7 @@ This pogram is not valid... For some reasons.
 
 int main(){
 	{const string s = "a string";
-	cout<s<<endl;}
+	cout<<s<<endl;}
 
 	{const string s = "another one string";
 	cout<<s<<endl;}
