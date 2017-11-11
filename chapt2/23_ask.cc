@@ -12,20 +12,21 @@ int main(){
 	string name;
 	cin>>name;
 
+	cout<<"Enter number of pads: ";
+	unsigned pad;
+	cin>>pad;
+
 	//building message we intend to write
 	string greeting = "Hello " + name + "!";
 
-	//the number of pads suppounding the greeting
-	const int pad = 0;
-
 	//the number of rows and columns to write
-	const int rows = 2*pad + 3;
+	const unsigned rows = 2*pad + 3;
 	const string::size_type cols = greeting.size() + 2*pad + 2;
 	
 	cout<<endl;
 
 	//invariant: we have written r rows so far
-	for (int r = 0; r != rows; r++){
+	for (unsigned r = 0; r != rows; r++){
 	string::size_type c = 0;
 	
 	//invariant: we have c characters written in the current row so far
