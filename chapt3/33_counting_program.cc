@@ -23,6 +23,7 @@ int main(){
 		cin>>x;
 		words.push_back(x);		
 	}
+	words.pop_back();
 
 	typedef vector<string>::size_type vec_sz;
 	vec_sz size = words.size();
@@ -32,7 +33,7 @@ int main(){
 		cout<<"Nothing is entered! Exiting..."<<endl;
 		return 1;	
 	}
-
+/*
 	//control print:
 	for (unsigned i = 0; i<size; i++){
 		cout<<"words["<<i<<"] = "<<words[i]<<endl;
@@ -41,6 +42,11 @@ int main(){
 	//the simplest case: 
 	//count how many "text" words are in vector
 	cout<<count(begin(words), end(words), "text")<<endl;
+*/
+
+	for (unsigned i = 0; i<size; i++){
+		cout<<"\t"<<words[i]<<": "<<count(begin(words), end(words), words[i])<<endl;
+	}
 
 	return 0;
 }
