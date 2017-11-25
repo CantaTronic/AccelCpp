@@ -8,6 +8,15 @@
 #include <vector>
 #include "grade.h"
 #include "Student_info.h"
+// #include <stdio.h>  //for color printing
+/*see escape settings here: habrahabr.ru/post/94647/
+ * \033[33m - yellow
+ * \033[32m - green
+ * \033[34m - blue
+ * \033[36m - cyan
+ * \033[0m - return to the color-by-default
+ */
+
 
 using std::cin;		using std::cout;
 using std::endl;	using std::domain_error;
@@ -23,9 +32,10 @@ int main()
 	string pat = "Surname midterm_grade final_grade all_homework_grades_separated_by_spaces";
     string ast = string(pat.size()+3,'*');
 	
-	cout<<ast<<"\n Welcome to our grade calculating program! \n"<<endl;
+	cout<<ast<<"\n\t\tWelcome to our grade calculating program! \n"<<endl;
     cout<<"Please, enter an information about every student using the next pattern: \n\n"
-    "Surname midterm_grade final_grade all_homework_grades_separated_by_spaces \n\n"
+    "\033[33mSurname\033[0m \033[32mmidterm_grade \033[0m\033[33m\033[34mfinal_grade \033[33m"
+    "\033[36mall_homework_grades_separated_by_spaces \033[0m\n\n"
     "To finish data entering press \' sign.\n"<<ast<<endl;
 	
 	//read and store all the students data.
