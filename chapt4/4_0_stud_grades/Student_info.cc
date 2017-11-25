@@ -2,7 +2,7 @@
 //source file for Student_info-related functions
 #include "Student_info.h"
 
-using std::istream; using std::verctor;
+using std::istream; using std::vector;
 
 bool compare (const Student_info &x,const Student_info &y){
     return x.name<y.name;
@@ -12,7 +12,7 @@ istream& read (istream& is, Student_info& s) {
     //read and store the student's name and midterm and final exam grades
     is >> s.name >> s.midterm >> s.final;
     
-    rad_hw(is, s.homework); //readandstore all the student's homework grades
+    read_hw(is, s.homework); //readandstore all the student's homework grades
     return is;
 }
 

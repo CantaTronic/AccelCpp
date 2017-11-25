@@ -11,8 +11,8 @@
 struct Student_info {
 	std::string name;
 	double midterm, final;
-	vector<double> homework;
-}
+	std::vector<double> homework;
+};
 
 bool compare (const Student_info&, const Student_info&);
 std::istream& read (std::istream&, Student_info&);
