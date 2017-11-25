@@ -20,6 +20,13 @@ int main()
 	vector<Student_info> students;
 	Student_info record;
 	string::size_type maxlen = 0;	//the lenth of the longest name
+	string pat = "Surname midterm_grade final_grade all_homework_grades_separated_by_spaces";
+    string ast = string(pat.size()+3,'*');
+	
+	cout<<ast<<"\n Welcome to our grade calculating program! \n"<<endl;
+    cout<<"Please, enter an information about every student using the next pattern: \n\n"
+    "Surname midterm_grade final_grade all_homework_grades_separated_by_spaces \n\n"
+    "To finish data entering press \' sign.\n"<<ast<<endl;
 	
 	//read and store all the students data.
 	//Invariant: studnts contains all the student records read so far
@@ -33,6 +40,8 @@ int main()
 	//sort the student records by alphabet
 	sort(students.begin(), students.end(), compare);
 	
+    cout<<"THE FINAL GRADES ARE:"<<endl;
+    
 	//write the names and grades
 	for (vector<Student_info>::size_type i = 0;
 		i != students.size(); i++) {
