@@ -5,7 +5,7 @@ using std::vector;
 using std::istream; 
 using std::string;  
 
-vector<string> read_input::read_words(istream &in){
+vector<string> read_words(istream &in){
     string tmp;
     vector<string> vect;
     in>>tmp;
