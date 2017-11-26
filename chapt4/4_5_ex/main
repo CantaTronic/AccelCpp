@@ -8,20 +8,8 @@
 
 using std:: cin;    using std::vector;
 using std::cout;    using std::endl;
-using std::istream; using std::begin; 
-using std::string;  using std::end;
-using std::count;
-
-vector<string> read_words(istream &in){
-    string tmp;
-    vector<string> str;
-    in>>tmp;
-    while (tmp != "0") {
-        str.push_back(tmp);
-        in>>tmp;
-    }
-    return str;
-}
+using std::begin;   using std::string;  
+using std::end;     using std::count;
 
 
 int main(){
