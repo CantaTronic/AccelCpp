@@ -19,7 +19,8 @@ bool read (istream& is, Student_info& s) {
     if (name != "end") {
         s.name = name;
         is >> midterm >> final;
-        std::cout<<std::endl;
+//         std::cout<<std::endl;
+         std::cout<<std::flush;
 //         std::cout<<"midterm = "<< midterm << ", final = " << final<<std::endl;
         std::vector<double> homework;   //local as well
         read_hw(is, homework);      //readandstore all the student's homework grades
