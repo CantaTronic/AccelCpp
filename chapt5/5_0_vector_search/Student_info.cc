@@ -12,27 +12,49 @@ bool compare (const Student_info &x,const Student_info &y){
 bool fgrade (const Student_info & s) {
   return grade(s) < 60;
 }
+//the first variant: need a lot of memory
+// vector<Student_info> extract_fails(vector<Student_info>& students)  {
+//   vector<Student_info> fail, pass;
+//   
+//   for (vector<Student_info>::size_type i = 0; i != students.size(); i++)  {
+//     if (fgrade(students[i])) {
+//       fail.push_back(students[i]);
+//     } else {
+//       pass.push_back(students[i]);
+//     }
+//   }
+//   students = pass;
+//   return fail;
+// }
 
+//the second variant, then we try to use more optimal data structure 
 vector<Student_info> extract_fails(vector<Student_info>& students)  {
-  vector<Student_info> fail, pass;
+  vector<Student_info> fail;
+  vector<Student_info>::size_type i = 0;
   
-  for (vector<Student_info>::size_type i = 0; i != students.size(); i++)  {
+  // invariante elements [0, i) of students represent passing grades
+  while (i != students.size()) {
     if (fgrade(students[i])) {
       fail.push_back(students[i]);
-    } else {
-      pass.push_back(students[i]);
-    }
+      students.erase(students.begin() + i);
+    } else 
+        i++;
   }
-  students = pass;
   return fail;
 }
 
-istream& read (istream& is, Student_info& s) {
+bool read (istream& is, Student_info& s) {
     //read and store the student's name and midterm and final exam grades
-    is >> s.name >> s.midterm >> s.final;
-    
-    read_hw(is, s.homework); //readandstore all the student's homework grades
-    return is;
+    std::string name;
+    is >> name; 
+    if (name != "end") {
+      s.name = name;
+      is>> s.midterm >> s.final;
+      std::cout<<std::flush;
+      read_hw(is, s.homework); //readandstore all the student's homework grades
+      return true;
+    }
+    return false;
 }
 
 /*
@@ -45,9 +67,11 @@ istream& read_hw(istream& in, vector<double>& hw){
         
         //read the homework grades
         double x;
-        while (in >> x)
+        in>>x;
+        while (x != 0){
             hw.push_back(x);
-        
+            in >> x;
+        }
         //clear the stream so that input will work forthe next student
         in.clear();
     }
