@@ -27,18 +27,32 @@ bool fgrade (const Student_info & s) {
 //   return fail;
 // }
 
-//the second variant, then we try to use more optimal data structure 
+// //the second variant, then we try to use more optimal data structure 
+// vector<Student_info> extract_fails(vector<Student_info>& students)  {
+//   vector<Student_info> fail;
+//   vector<Student_info>::size_type i = 0;
+//   
+//   // invariante elements [0, i) of students represent passing grades
+//   while (i != students.size()) {
+//     if (fgrade(students[i])) {
+//       fail.push_back(students[i]);
+//       students.erase(students.begin() + i);
+//     } else 
+//         i++;
+//   }
+//   return fail;
+// }
+
+//the third variant, even more based on iterators
 vector<Student_info> extract_fails(vector<Student_info>& students)  {
   vector<Student_info> fail;
-  vector<Student_info>::size_type i = 0;
-  
-  // invariante elements [0, i) of students represent passing grades
-  while (i != students.size()) {
-    if (fgrade(students[i])) {
-      fail.push_back(students[i]);
-      students.erase(students.begin() + i);
-    } else 
-        i++;
+  vector<Student_info>::iterator iter = students.begin();
+  while(iter != students.end()) {
+    if (fgrade(*iter)){
+      fail.push_back(*iter);
+      iter = students.erase(iter);
+    } else
+      iter++;
   }
   return fail;
 }
