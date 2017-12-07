@@ -21,4 +21,6 @@ std::istream& read_hw (std::istream&,std::vector<double>&);
 bool fgrade (const Student_info& s);
 std::vector<Student_info> extract_fails(std::vector<Student_info>&);
 
+vector<std::string> split (const std::string& s);
+
 #endif
