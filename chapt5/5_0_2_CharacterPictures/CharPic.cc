@@ -9,8 +9,30 @@ using std::cout;    using std::endl;
 string::size_type width (const vector<string> & vect);
 vector<string> frame (const vector<string> & vect);
 void printVec (const vector<string> & vect);
+void testFrame();
+vector<string> vcat (const vector<string> & top, const vector<string> & bottom);
+void testCat();
 
 int main() {
+  testFrame();
+  testCat();
+  return 0;
+}
+
+void testCat() {
+  /*Test concatenation*/
+  vector<string> first, second, vertAdd;
+  first.push_back("Test");
+  first.push_back("vector"); 
+  first.push_back("one");  
+  second.push_back("vector"); 
+  second.push_back("test");
+  second.push_back("Second");
+  vertAdd = vcat (first, second);
+  printVec(frame(vertAdd));
+}
+
+void testFrame() {
   vector<string> testVect, vect2;
   testVect.push_back("Test");
   testVect.push_back("string");
@@ -19,7 +41,6 @@ int main() {
   vect2 = frame (testVect);
   cout<<"With frame: "<<endl;
   printVec(vect2);
-  return 0;
 }
 
 string::size_type width (const vector<string> & vect) {
@@ -44,6 +65,13 @@ vector<string> frame (const vector<string> & vect) {
     ret.push_back(tmp);
   }
   ret.push_back(border);
+  return ret;
+}
+
+vector<string> vcat (const vector<string> & top, const vector<string> & bottom) {
+  /*Make vertical concatenation of two vector<string>'s*/
+  vector<string> ret = top;
+  ret.insert(ret.end(), bottom.begin(), bottom.end());
   return ret;
 }
 
