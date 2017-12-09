@@ -11,6 +11,7 @@ vector<string> frame (const vector<string> & vect);
 void printVec (const vector<string> & vect);
 void testFrame();
 vector<string> vcat (const vector<string> & top, const vector<string> & bottom);
+vector<string> hcat (const vector<string> & left, const vector<string> & right);
 void testCat();
 
 int main() {
@@ -24,11 +25,15 @@ void testCat() {
   vector<string> first, second, vertAdd;
   first.push_back("Test");
   first.push_back("vector"); 
-  first.push_back("one");  
-  second.push_back("vector"); 
-  second.push_back("test");
+  first.push_back("one"); 
   second.push_back("Second");
+  second.push_back("test");
+  second.push_back("vector"); 
+  cout<<"Test vcat:"<<endl;
   vertAdd = vcat (first, second);
+  printVec(frame(vertAdd));
+  cout<<"Test hcat:"<<endl;
+  vertAdd = hcat (first, second);
   printVec(frame(vertAdd));
 }
 
@@ -65,6 +70,26 @@ vector<string> frame (const vector<string> & vect) {
     ret.push_back(tmp);
   }
   ret.push_back(border);
+  return ret;
+}
+
+vector<string> hcat (const vector<string> & left, const vector<string> & right) {
+  vector<string> ret;
+  typedef vector<string>::size_type vsize;
+  vsize width1 = width(left) + 1;
+//   vsize sz = (left.size()>right.size())?left.size():right.size();
+  vsize i = 0, j = 0;
+  while (i != left.size() || j != right.size()) {
+    string tmp;
+    if (i != left.size()) {
+      tmp = left[i++];
+    }
+    tmp += string(width1 - tmp.size(), ' ');
+    if (j!= right.size()) {
+      tmp += right[j++];
+    }
+    ret.push_back(tmp);
+  }
   return ret;
 }
 
