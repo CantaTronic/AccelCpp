@@ -15,14 +15,15 @@ vector<string> split (const string& s);
 
 int main () {
   //read each line of input
-  cout<<"Enter any number of lines followed by empty line"<<endl;
-  string tmp;
-  str_vec line, rez;
-  while (getline(cin, tmp) &&(tmp != "")) {
-    line.push_back(tmp);
-  }
-  rez = rot(line[0]);
-//   printVec(line);
+//   cout<<"Enter any number of lines followed by empty line"<<endl;
+//   string tmp;
+  vector<string> line, rez;
+//   while (getline(cin, tmp) &&(tmp != "")) {
+//     line.push_back(tmp);
+//   }
+  string test = "My test string";
+  rez = rot(test);
+  printVec(rez);
   //generate a set of rotations for every line we have read
   
   return 0;
@@ -32,10 +33,18 @@ vector<string> rot (const string str) {
   /*take a string and return a vector of rotations*/
   //split string into words
   vector<string> tmp = split(str);
+  vector<string> ret;
 //   printVec(tmp);
-  for(vector<string>::const_iterator i = 0; i != tmp.size(); i++)
-    
-  return tmp;
+  for(vector<string>::size_type i = 0; i != tmp.size(); i++) {
+    string curStr;
+    for (vector<string>::size_type j = i; j != tmp.size(); j++)
+      curStr += tmp[j] + " ";
+    for (vector<string>::size_type j = 0; j < i; j++)
+      curStr += tmp[j] + " ";
+    ret.push_back(curStr);
+  }
+//   printVec(ret);
+  return ret;
 }
 
 vector<string> split (const string& s) {
