@@ -12,6 +12,7 @@ typedef vector<string> str_vec;
 void printVec (const vector<string> & vect);
 vector<string> rot (const string str);
 vector<string> split (const string& s);
+void testRot();
 
 int main () {
   //read each line of input
@@ -82,3 +83,8 @@ void printVec (const vector<string> & vect) {
     }
 }
 
+void testRot() {
+  string test = "My test string";
+  vector<string> rez = rot(test);
+  printVec(rez);
+}
