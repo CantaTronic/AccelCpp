@@ -15,8 +15,11 @@ vector<string> hcat (const vector<string> & left, const vector<string> & right);
 void testCat();
 
 int main() {
-  testFrame();
-  testCat();
+//   testFrame();
+//   testCat();
+  std::vector<string> test1;
+  test1.push_back("test");
+  printVec(frame(test1));
   return 0;
 }
 
