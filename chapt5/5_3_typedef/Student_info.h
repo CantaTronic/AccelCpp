@@ -16,7 +16,7 @@ struct Student_info {
 };
 
 bool compare (const Student_info&, const Student_info&);
-bool compare (double a, double b);
+bool compareNum (double a, double b);
 bool read (std::istream&, Student_info&);
 std::istream& read_hw (std::istream&,doubleCont&);
 void printStudInfo(Student_info& s);

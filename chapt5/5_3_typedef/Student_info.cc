@@ -11,8 +11,8 @@ bool compare (const Student_info &x,const Student_info &y){
     return x.name<y.name;
 }
 
-bool compare (double a, double b) {
-  return (a<=b);
+bool compareNum (double a, double b) {
+  return a<b;
 }
 
 
