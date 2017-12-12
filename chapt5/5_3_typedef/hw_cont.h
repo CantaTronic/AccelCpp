@@ -10,5 +10,6 @@
 
 typedef std::list<double> doubleCont;
 typedef std::list<double>::size_type vec_sz;
+typedef std::list<double>::const_iterator DCiterC;
 
 #endif

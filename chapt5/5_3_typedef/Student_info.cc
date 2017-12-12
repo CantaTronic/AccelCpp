@@ -11,6 +11,11 @@ bool compare (const Student_info &x,const Student_info &y){
     return x.name<y.name;
 }
 
+bool compare (double a, double b) {
+  return (a<=b);
+}
+
+
 // bool fgrade (const Student_info & s) {
 //   return grade(s) < 60;
 // }
@@ -98,9 +103,11 @@ void printStudInfo(Student_info& s) {
 
 void printVec (const doubleCont vect) {
   cout<<"size = "<<vect.size()<<endl;
-  for (vec_sz i = 0; i < vect.size() - 1; i++)
-    cout<<vect[i]<<", ";
-  cout<<vect[vect.size() - 1]<<endl;
+//   for (vec_sz i = 0; i < vect.size() - 1; i++)
+  for (DCiterC it = vect.begin(); it != vect.end(); it++)
+    cout<<(*it)<<", ";
+  cout<<endl;
+//   cout<<vect[vect.size() - 1]<<endl;
   
 }
 

@@ -43,7 +43,8 @@ int main()
 	}
 	file.close();
 	//sort the student records by alphabet
-	sort(students.begin(), students.end(), compare);
+// 	sort(students.begin(), students.end(), compare);
+        students.sort(compare);
 	
         cout<<"THE FINAL GRADES ARE:"<<endl;
     
