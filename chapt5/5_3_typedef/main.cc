@@ -9,6 +9,7 @@
 #include "Student_info.h"
 #include "contType.h"
 #include <fstream>
+#include "container.h"
 // #include <stdio.h>  //for color printing
 /*see escape settings here: habrahabr.ru/post/94647/
  * \033[33m - yellow
@@ -43,8 +44,12 @@ int main()
 	}
 	file.close();
 	//sort the student records by alphabet
-// 	sort(students.begin(), students.end(), compare);
+        #ifdef VECT
+	sort(students.begin(), students.end(), compare);
+        #endif
+        #ifdef LIST
         students.sort(compare);
+        #endif
 	
         cout<<"THE FINAL GRADES ARE:"<<endl;
     

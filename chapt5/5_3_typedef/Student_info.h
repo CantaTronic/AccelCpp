@@ -22,7 +22,4 @@ std::istream& read_hw (std::istream&,doubleCont&);
 void printStudInfo(Student_info& s);
 void printVec (const doubleCont vect);
 
-// bool fgrade (const Student_info& s);
-// std::vector<Student_info> extract_fails(std::vector<Student_info>&);
-
 #endif
