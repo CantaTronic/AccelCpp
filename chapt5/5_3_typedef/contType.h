@@ -5,18 +5,8 @@
 #include "Student_info.h"
 #include "container.h"
 
-#ifdef VECT 
-  #include <vector>
-  typedef std::vector<Student_info> studFile;
-  typedef std::vector<Student_info>::iterator iter;
-  typedef std::vector<Student_info>::const_iterator iterC;
-#endif
-
-#ifdef LIST
-  #include <list>
-  typedef std::list<Student_info> studFile;
-  typedef std::list<Student_info>::iterator iter;
-  typedef std::list<Student_info>::const_iterator iterC;
-#endif
+  typedef CONT<Student_info> studFile;
+  typedef CONT<Student_info>::iterator iter;
+  typedef CONT<Student_info>::const_iterator iterC;
 
 #endif

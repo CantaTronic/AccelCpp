@@ -39,12 +39,9 @@ void printStudInfo(Student_info& s) {
 
 void printVec (const doubleCont vect) {
   cout<<"size = "<<vect.size()<<endl;
-//   for (vec_sz i = 0; i < vect.size() - 1; i++)
   for (DCiterC it = vect.begin(); it != vect.end(); it++)
     cout<<(*it)<<", ";
-  cout<<endl;
-//   cout<<vect[vect.size() - 1]<<endl;
-  
+  cout<<endl;  
 }
 
 /*

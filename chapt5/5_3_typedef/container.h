@@ -1,4 +1,10 @@
 #pragma once
 
-#define VECT  
+#include <list>
+#include <vector>
+ 
 // #define LIST
+// #define CONT std::list
+
+#define VECT 
+#define CONT std::vector

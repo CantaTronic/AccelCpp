@@ -9,8 +9,6 @@
 
 double grade(double, double, double);
 double grade (double, double, const doubleCont&);
-// double grade (double, double, const std::vector<double>&);
-// double grade (double, double, const std::list<double>&);
 double grade(const Student_info&);
 
 #endif

@@ -10,6 +10,7 @@
 #include "contType.h"
 #include <fstream>
 #include "container.h"
+// #include <iterator>
 // #include <stdio.h>  //for color printing
 /*see escape settings here: habrahabr.ru/post/94647/
  * \033[33m - yellow
@@ -25,6 +26,7 @@ using std::endl;	using std::domain_error;
 using std::sort;	using std::setprecision;
 using std::streamsize;	using std::string;
 using std::fstream;
+// using std::begin;   using std::end;
 
 int main()
 {
@@ -45,7 +47,8 @@ int main()
 	file.close();
 	//sort the student records by alphabet
         #ifdef VECT
-	sort(students.begin(), students.end(), compare);
+// 	sort(students.begin(), students.end(), compare);
+        sort(begin(students), end(students), compare);
         #endif
         #ifdef LIST
         students.sort(compare);
