@@ -13,16 +13,18 @@ void testFrame();
 vector<string> vcat (const vector<string> & top, const vector<string> & bottom);
 vector<string> hcat (const vector<string> & left, const vector<string> & right);
 void testCat();
+void testEx5_7();
 
 int main() {
 //   testFrame();
 //   testCat();
-  std::vector<string> test1;
-  cout<<"Init size: "<<test1.size()<<endl;
-  cout<<"This will not work: "<<test1[0]<<endl;
-  test1.push_back("test");
-  printVec(frame(test1));
+  testEx5_7();
   return 0;
+}
+
+void testEx5_7() {
+  std::vector<string> test1;
+  printVec(frame(test1));
 }
 
 void testCat() {
@@ -55,14 +57,18 @@ void testFrame() {
 
 string::size_type width (const vector<string> & vect) {
   /*Retrun the length of te longest stringin the vector of strings*/
-  string::size_type maxlen = vect[0].size();
-  vector<string>::size_type sz = vect.size();
-  for (vector<string>::size_type i = 1; i != sz; i++) {
-    if (vect[i].size() > maxlen ) {
-      maxlen = vect[i].size();
-    }
+  if (vect.empty()) {
+    return 0;
+  } else {
+      string::size_type maxlen = vect[0].size();
+      vector<string>::size_type sz = vect.size();
+      for (vector<string>::size_type i = 1; i != sz; i++) {
+        if (vect[i].size() > maxlen ) {
+          maxlen = vect[i].size();
+        }
+      }
+      return maxlen;
   }
-  return maxlen;
 }
 
 vector<string> frame (const vector<string> & vect) {
