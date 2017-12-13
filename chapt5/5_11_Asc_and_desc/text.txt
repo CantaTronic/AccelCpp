@@ -1,0 +1,12 @@
+Medical image data standards, such as DICOM (Digital Imaging and communications in Medicine), 
+are very important. DICOM consists of metadata and actual images. The
+metadata includes various types of medical information, such
+as inspection items, patient information, etc.
+Here, we propose a novel distributed PACS in which only
+the DICOM metadata are stored on a central server. Actual
+images are saved on the distributed site. For example, to find
+a specific image, the user accesses the information stored in
+the metadata. Thus, it is inefficient to access the entire medical
+image when user retrieves only the DICOM metadata. Using
+this method, a high-speed extraction result can be obtained
+with retrieval of only the metadata.

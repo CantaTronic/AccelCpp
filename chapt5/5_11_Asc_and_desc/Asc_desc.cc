@@ -13,8 +13,12 @@ using std::fstream;
 
 void testAscendor();
 void testDescendor();
+void testOneWord();
 void testHasAsDs();
 vector<string> loadDict(string);
+void printVec (const vector<string> &);
+string::size_type LongestWord(const vector<string> &);
+void testLongest();
 
 bool ascendor (char c) {
   /*check if char c is ascendor*/
@@ -34,23 +38,74 @@ bool hasAsDs(string word) {
 }
 
 int main () {
-  testAscendor();
-  testDescendor();
-  testHasAsDs();
+//   testAscendor();
+//   testDescendor();
+//   testHasAsDs();
+  testLongest();
   return 0; 
 }
 
+string::size_type LongestWord(const vector<string> & dict) {
+  /*Looking for longest word with ascendors/descendors in dictionary*/
+  string::size_type maxlen = 0;
+  if (dict.empty()) {
+      cout<<"Dictionary is empty"<<endl;
+  } else {
+      for (vector<string>::const_iterator word = dict.begin(); word != dict.end(); word++) {
+        if (hasAsDs(*word) && ((*word).size() > maxlen) ) {
+//         if (vect[i].size() > maxlen ) {
+          maxlen = word -> size();
+        }
+      }
+  }
+  return maxlen;
+}
+
 vector<string> loadDict(string dictName) {
-  fstream dict.open(dictName);
-  
+  /*load the dictionary*/
+  fstream dict;
+  dict.open(dictName);
+  vector<string> ret;
+  string tmp;
+  while (dict>>tmp) {
+    ret.push_back(tmp);
+  }
   dict.close();
+  return ret;
 }
 
 void testHasAsDs() {
+//   testOneWord();
+  vector<string> testDict = loadDict("text.txt");
+//   printVec(testDict);
+  int has = 0;
+  int no_has = 0;
+  for (vector<string>::const_iterator it = testDict.begin(); it != testDict.end(); it++) {
+    if (hasAsDs(*it)) {
+      has++;
+    } else {
+      no_has++;
+    }
+  }
+  cout<<"Dictionary size: "<<testDict.size()<<endl;
+  cout<<"Have ascendors/descendors: "<<has<<endl;
+  cout<<"Don't have them: "<<no_has<<endl;
+}
+
+void testOneWord() {
   string test1 = "test";
   if (hasAsDs(test1)) {
     cout <<"Word "<<test1<<" has ascendors or descendors"<<endl; 
   }
+}
+
+void testLongest() {
+  vector<string> testVec;
+  string test = "my_string";
+  testVec.push_back(test);
+  cout<<"Test Long: "<<LongestWord(testVec)<<" == "<<test.size()<<endl;
+//     EXPECT_EQ(LongestWord(testVec), test.size());
+  
 }
 
 void testAscendor() {
@@ -59,6 +114,13 @@ void testAscendor() {
       cout<<c<<" is ascendor"<<endl;
     }
   }
+}
+
+void printVec (const vector<string> & vect) {
+  /*Print out the vector*/
+    for (vector<string>::size_type i = 0; i != vect.size(); i++) {
+        cout<<vect[i]<<endl;
+    }
 }
 
 void testDescendor() {
