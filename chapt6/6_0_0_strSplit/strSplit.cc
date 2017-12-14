@@ -2,6 +2,7 @@
 #include <vector>
 #include <string>
 #include <iostream>
+#include <algorithm>
 // #include "gtest/gtest.h"   //I'm just too lazy to link this small training project with gtest. Shame on me =))
 
 using std::vector;  using std::string;
@@ -9,15 +10,32 @@ using std::cout;    using std::endl;
 
 vector<string> split (const string& s);   //actual function
 
+bool space ( char c) {
+  return isspace(c);
+}
+
+bool no_space (char c) {
+  return !space(c);
+}
+
 /*and a bit of funny stuff for testing :)*/
 bool operator== (const vector<string> & x, const vector<string> & y); 
 void testVectorEquality();
 void testSplit();
+void testSpace ();
 
 int main () {
+  testSpace ();
   testVectorEquality();
   testSplit();
   return 0; 
+}
+
+void testSpace () {
+  cout<<"space(\" \"):"<<space(' ')<<endl;
+  cout<<"space(\"a\"):"<<space('a')<<endl;
+  cout<<"no_space(\" \"):"<<no_space(' ')<<endl;
+  cout<<"no_space(\"a\"):"<<no_space('a')<<endl;
 }
 
 void testVectorEquality() {
@@ -63,27 +81,20 @@ void testSplit() {
 
 vector<string> split (const string& s) {
   vector<string> ret;
-  typedef string::size_type string_size;
-  string_size i = 0;
+//   typedef string::size_type string_size;
+//   string_size i = 0;
+  string::const_iterator i = s.begin();
+  string::const_iterator j = s.begin();
   //invariant: we have processed characters [original value of i, i)
-  while (i != s.size()) {
-    //ignore leading blanks
-    //invariant: characters in range [original i, current i) are all spaces
-    while (i !=s.size() && isspace(s[i])) { 
-      i++;
-    }
-    //find end of next word
-    string_size j = i;
-    //invariant: none of the characters in range [original j, current j] is space
-    while (j != s.size() && !isspace(s[j])) {
-      j++;
-    }
+  while (i != s.end()) {
+    i = find_if(i, s.end(), space);
+
+    j = find_if(i, s.end(), no_space);
       //if we found some nonwhitespace characters
-    if (i != j) {
+    if (i != s.end())
       //copy from s starting at i and taking j-i chars
-      ret.push_back(s.substr(i, j-i));
-      i = j;
-    }
+      ret.push_back(string(i, j));  //we can do strings just such way, with iterators and without substring
+    i = j;
   }
   return ret;
 } 
