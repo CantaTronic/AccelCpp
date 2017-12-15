@@ -25,7 +25,7 @@ string::const_iterator url_begin (string::const_iterator b, string::const_iterat
   static const string step = "://";   //url separator
   iter i = b;
   //while we can find a separator between elements *i and *e and put it sadress into i
-  while (search (i, e, step.begin(), step.end()) != e) {
+  while ( (i = search (i, e, step.begin(), step.end())) != e) {
 //     if we found smth(1) and there are still some symbols after separator 
     if ((i != b) && (i + step.size() != e)) {
       //assume we find url

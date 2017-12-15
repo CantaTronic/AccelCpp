@@ -7,6 +7,7 @@
 #include <string>
 #include <cctype>
 #include "urlFunc.h"
+// #include <gtest/gtest.h>
 
 using std::cout;  using std::vector;
 using std::endl;  using std::string;
@@ -25,5 +26,17 @@ void test_not_url_char() {
   for (string::const_iterator it = test.begin(); it != test.end(); it++ )
     cout<<(*it)<<"\t"<<!(isalnum(*it))<<"\t\t"<<!(find(url_char.begin(), url_char.end(), *it) != url_char.end())<<"\t"<<not_url_char(*it)<<endl;
 }
+
+// TEST(url, not_url_char) {
+//   char t1 = ' ';
+//   char t2 = 'a';
+//   EXPECT_EQ(not_url_char(t1), 0);
+//   EXPECT_EQ(not_url_char(t2), 1);
+// }
+
+// int main(int argc, char **argv) {
+//   ::testing::InitGoogleTest(&argc, argv);
+//   return RUN_ALL_TESTS();
+// }
 
 #endif
