@@ -2,17 +2,28 @@
 #ifndef urlFunc_h
 #define urlFunc_h
 
+#include <cctype>   //for isalnum()
+#include <algorithm>  //for find_if
+#include <string>
+#include <vector>
+
+using std::string;    using std::vector;
+
 /*Special functions providing url search*/
 
-string::iterator url_begin(string::const_iterator b, string::const_iterator e) {
-  string::iterator ret;
-  return ret;
+bool not_url_char(char c) {
+  const string url_char = "~;/?:@=&$-_.+!*'(),";    //special url symbols
+  return !(isalnum(c) || (find(url_char.begin(), url_char.end(), c) != url_char.end()));
 }
 
-string::iterator url_end (string::const_iterator b, string::const_iterator e) {
-  string::iterator ret;
-  return ret;
+string::const_iterator url_end(string::const_iterator b, string::const_iterator e) {
+  return find_if (b, e, not_url_char);
 }
+
+// string::iterator url_begin (string::const_iterator b, string::const_iterator e) {
+//   string::iterator ret;
+//   return ret;
+// }
 
 
 vector<string> findUrl(const string & str){
@@ -26,7 +37,7 @@ vector<string> findUrl(const string & str){
   iter after;
   while (b != e) {
     //look for the url strart
-    b = url_begin(b, e);
+//     b = url_begin(b, e);
     
     if (b != e) {
         // lookfor the url end

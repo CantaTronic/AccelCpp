@@ -2,9 +2,9 @@
 // #include <iostream>
 #include <vector>
 #include <string>
-#include <fstream>
 #include "testFunc.h"
 #include "urlFunc.h"
+#include <fstream>    //work with input file
 #include <streambuf>  //stream buffer to control data reading
 
 /*using std::cout;  */using std::vector;
