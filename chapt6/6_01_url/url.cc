@@ -17,8 +17,8 @@ int main() {
   string buf((std::istreambuf_iterator<char>(url_file)), std::istreambuf_iterator<char>());
   url_file.close();
 //   cout<<"\t"<<buf<<endl;    //check out
-  vector<string> tmp;
-  tmp.push_back("test vector");
+  vector<string> tmp = findUrl(buf);
+//   tmp.push_back("test vector");
   printVec(tmp);
 
   return 0;
