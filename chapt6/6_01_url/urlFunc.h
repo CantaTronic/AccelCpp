@@ -53,13 +53,13 @@ vector<string> findUrl(const string & str){
   typedef string::const_iterator iter;
   iter b = str.begin();
   iter e = str.end();
-  iter after;
+//   iter after;
   while (b != e) {
     //look for the url strart
     b = url_begin(b, e);
     if (b != e) {
         // lookfor the url end
-        after = url_end(b, e);
+        iter after = url_end(b, e);
         //     save url into vector
         ret.push_back(string(b, after));
         b = after;

@@ -18,8 +18,8 @@ int main() {
   url_file.close();
 //   cout<<"\t"<<buf<<endl;    //check out
   vector<string> tmp = findUrl(buf);
-//   tmp.push_back("test vector");
-  printVec(tmp);
+//   printVec(tmp);
+  test_not_url_char();
 
   return 0;
 }
