@@ -4,9 +4,8 @@
 
 #include "Student_info.h"
 #include "hw_cont.h"
-#include <vector>
-#include <list>
 
+double grade_aux(const Student_info& s);
 double grade(double, double, double);
 double grade (double, double, const doubleCont&);
 double grade(const Student_info&);

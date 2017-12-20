@@ -11,6 +11,7 @@
 #include <fstream>
 #include "container.h"
 #include "tests.h"
+#include "analysis.h"
 
 using std::cout;        using std::max;	
 using std::endl;	using std::domain_error;
@@ -40,10 +41,16 @@ int main()
 	*/
         studFile did, didnt;
         string::size_type maxlen = separate("test.txt", did, didnt);
+        //a bit of control print
         cout<<"did:"<<endl;
         printStudVec(did);
         cout<<"didnt:"<<endl;
         printStudVec(didnt);
+        
+        cout<<"maxlen: "<<maxlen<<endl;
+        
+        //analysis:
+        write_analysis(std::cout, "median analysis ", median_analysis, did, didnt);
         
         return 0;
         
