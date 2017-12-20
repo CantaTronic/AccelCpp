@@ -20,7 +20,7 @@ bool compareNum (double a, double b);
 bool did_all_hw (const Student_info &s);
 bool read (std::istream&, Student_info&);
 std::istream& read_hw (std::istream&,doubleCont&);
-void printStudInfo(Student_info& s);
+void printStudInfo(const Student_info& s);
 void printVec (const doubleCont vect);
 
 #endif

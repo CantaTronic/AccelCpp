@@ -40,6 +40,10 @@ int main()
 	*/
         studFile did, didnt;
         string::size_type maxlen = separate("test.txt", did, didnt);
+        cout<<"did:"<<endl;
+        printStudVec(did);
+        cout<<"didnt:"<<endl;
+        printStudVec(didnt);
         
         return 0;
         

@@ -37,7 +37,7 @@ bool read (istream& is, Student_info& s) {
     return false;
 }
 
-void printStudInfo(Student_info& s) {
+void printStudInfo(const Student_info& s) {
   /*test function*/
   std::cout<<"name: "<<s.name<<std::endl;
   std::cout<<"midterm: "<<s.midterm<<std::endl;

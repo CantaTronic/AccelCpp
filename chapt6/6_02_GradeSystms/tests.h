@@ -17,4 +17,11 @@ void testAllHW(const studFile & vect) {
           cout<<it->name<<": "<<did_all_hw(*it)<<endl;
         }
 }
+
+void printStudVec(studFile& stud) {
+  for (iterC it = stud.begin(); it != stud.end(); it++) {
+    printStudInfo(*it);
+  }
+}
+
 #endif
