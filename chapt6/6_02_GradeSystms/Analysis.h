@@ -12,6 +12,8 @@ double median_analysis(const studFile&);
 
 double average_analysis(const studFile&);
 
+double opt_median_analysis(const studFile&);
+
 void  write_analysis (std::ostream &, const string, double analysis (const studFile&), studFile& , studFile&);
 
 #endif
