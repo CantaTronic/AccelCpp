@@ -7,7 +7,7 @@ CXXFLAGS := -g -Wall -O2 -std=c++11
 LDFLAGS := -g -Wall -O2
 
 #object files
-OBJS := Student_info grade median main
+OBJS := Student_info Analysis grade median main
 
 #linking...
 code: $(addprefix build/,$(addsuffix .o,$(OBJS)))
