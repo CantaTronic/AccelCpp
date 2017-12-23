@@ -6,6 +6,7 @@
 #include "hw_cont.h"
 
 double grade_aux(const Student_info& s);
+double average_grade(const Student_info& s);
 double grade(double, double, double);
 double grade (double, double, const doubleCont&);
 double grade(const Student_info&);

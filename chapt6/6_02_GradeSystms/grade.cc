@@ -2,6 +2,7 @@
 #include <stdexcept>
 #include "grade.h"
 #include "median.h"
+#include "average.h"
 
 double grade_aux(const Student_info& s) {
   try {
@@ -9,6 +10,10 @@ double grade_aux(const Student_info& s) {
   } catch (std::domain_error) {
     return grade(s.midterm, s.final, 0);
   }
+}
+
+double average_grade(const Student_info& s) {
+  return grade (s.midterm, s.final, average(s.homework));
 }
 
 double grade (const Student_info& s) {
