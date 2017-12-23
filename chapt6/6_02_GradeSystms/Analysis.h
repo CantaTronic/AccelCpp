@@ -6,11 +6,11 @@
 #include <string>
 #include "contType.h"
 
-using std::string
+using std::string;
 
 double median_analysis(const studFile&);
 
-void  write_analysis (ostream &, const string, double analysis (const studFile&), studFile& , studFile&);
+void  write_analysis (std::ostream &, const string, double analysis (const studFile&), studFile& , studFile&);
 
 #endif
  

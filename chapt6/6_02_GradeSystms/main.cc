@@ -24,10 +24,10 @@ string::size_type separate(string fname, studFile& did, studFile& didnt);
 int main()
 {
         studFile did, didnt;
-        string::size_type maxlen = separate("test.txt", did, didnt);
+        /*string::size_type maxlen = */separate("test.txt", did, didnt);
         
         //do the analysis
-//         write_analysis (cout, "median", median_analysis, did, didnt);
+        write_analysis (cout, "median", median_analysis, did, didnt);
 //         write_analysis (cout, "average", average_analysis, did, didnt);
 //         write_analysis (cout, "opt_median", opt_median_analysis, did, didnt);
         return 0;
