@@ -22,12 +22,9 @@ double average_analysis(const studFile& stud){
 }
 
 double opt_median_analysis(const studFile& stud){
-  studFile& opt;
-  rm_copy(stud.begin(), stud.end(),back_inserter(opt), 0);
-  if (opt.empty()) {
-    return grade_aux();
-  }
-  return 0.0;
+  doubleCont grades;  
+  transform(stud.begin(), stud.end(), back_inserter(grades), opt_median);
+  return median(grades);
 }
 
 void  write_analysis (std::ostream & out, const string an_name, double analysis (const studFile&), studFile& did, studFile& didnt) {

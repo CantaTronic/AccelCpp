@@ -16,6 +16,10 @@ double average_grade(const Student_info& s) {
   return grade (s.midterm, s.final, average(s.homework));
 }
 
+// double opt_med_grade(const Student_info& s) {
+//   return grade (s.midterm, s.final, opt_median(s.homework));
+// }
+
 double grade (const Student_info& s) {
     return grade (s.midterm, s.final, s.homework);
 }   
