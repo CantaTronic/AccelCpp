@@ -13,7 +13,8 @@ void printVec (const vector<T> & vect);
 int main() {
 	vector<int> u(10, 100);
 	vector<int> v;
-	copy(u.begin(), u.end(), back_inserter(v));  //this is how I fixed the issue below
+// 	copy(u.begin(), u.end(), back_inserter(v));  //this is how I fixed the issue below - the 1st way - it wokrs :)
+        v.insert(v.end(),u.begin(),u.end());
 //         copy(u.begin(), u.end(), v.begin());  /*this is line from the textbook, it give as a seqfault, because there is no actual element here - the vector is empty*/
         cout<<"u = ";
         printVec(u);
