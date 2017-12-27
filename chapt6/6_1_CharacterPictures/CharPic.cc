@@ -42,6 +42,11 @@ void testCat() {
   cout<<"Test hcat:"<<endl;
   vertAdd = hcat (first, second);
   printVec(frame(vertAdd));
+  
+  second.push_back("check out bad case"); 
+  cout<<"Bad test hcat:"<<endl;
+  vertAdd = hcat (first, second);
+  printVec(frame(vertAdd));
 }
 
 void testFrame() {
@@ -95,10 +100,10 @@ vector<string> hcat (const vector<string> & left, const vector<string> & right) 
   vector<string> ret;
   typedef vector<string>::const_iterator vit;
   vector<string>::size_type width1 = width(left) + 1;
-//   vsize sz = (left.size()>right.size())?left.size():right.size();
   vit i = left.begin(), j = right.begin();
   while (i != left.end() || j != right.end()) {
     string tmp;
+    //add to tmp the whole line in left
     if (i != left.end()) {
       tmp = (*i);
       i++;
