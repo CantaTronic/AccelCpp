@@ -79,15 +79,38 @@ vector<string> frame (const vector<string> & vect) {
   return ret;
 }
 
+//the iterator version 1.0
+// vector<string> hcat (const vector<string> & left, const vector<string> & right) {
+//   vector<string> ret;
+//   typedef vector<string>::size_type vsize;
+//   vsize width1 = width(left) + 1;
+//   vsize edge = (left.size() > right.size())?left.size():right.size();
+//   for (vsize i = 0; i != edge; i++) {
+//     string tmp = left[i] + string(width1 - left[i].size(),' ') + right[i];
+//     ret.push_back(tmp);
+//   }
+// }
+
 vector<string> hcat (const vector<string> & left, const vector<string> & right) {
   vector<string> ret;
-  typedef vector<string>::size_type vsize;
-  vsize width1 = width(left) + 1;
-  vsize edge = (left.size() > right.size())?left.size():right.size();
-  for (vsize i = 0; i != edge; i++) {
-    string tmp = left[i] + string(width1 - left[i].size(),' ') + right[i];
+  typedef vector<string>::const_iterator vit;
+  vector<string>::size_type width1 = width(left) + 1;
+//   vsize sz = (left.size()>right.size())?left.size():right.size();
+  vit i = left.begin(), j = right.begin();
+  while (i != left.end() || j != right.end()) {
+    string tmp;
+    if (i != left.end()) {
+      tmp = (*i);
+      i++;
+    }
+    tmp += string(width1 - tmp.size(), ' ');
+    if (j!= right.end()) {
+      tmp += (*j);
+      j++;
+    }
     ret.push_back(tmp);
   }
+  return ret;
 }
 
 vector<string> vcat (const vector<string> & top, const vector<string> & bottom) {
