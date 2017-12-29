@@ -11,6 +11,7 @@
 #include <fstream>
 #include "Analysis.h"
 #include "container.h"
+#include "anTypes.h"
 #include "tests.h"
 
 using std::cout;        using std::max;	
@@ -27,9 +28,9 @@ int main()
         /*string::size_type maxlen = */separate("test.txt", did, didnt);
         
         //do the analysis
-        write_analysis (cout, "median"/*, median_analysis*/, did, didnt);
-        write_analysis (cout, "average"/*, average_analysis*/, did, didnt);
-        write_analysis (cout, "opt_median"/*, opt_median_analysis*/, did, didnt);
+        write_analysis (cout, kmedian/*, median_analysis*/, did, didnt);
+        write_analysis (cout, kaverage/*, average_analysis*/, did, didnt);
+        write_analysis (cout, kopt_median/*, opt_median_analysis*/, did, didnt);
         return 0;
 }
 
