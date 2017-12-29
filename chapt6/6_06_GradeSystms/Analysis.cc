@@ -3,7 +3,6 @@
 #include <algorithm>
 #include "grade.h"
 #include "median.h"
-// #include "average.h"
 
 using std::string;
 using std::endl;
@@ -24,25 +23,6 @@ double full_analysis(const studFile& stud, analysisType anType) {
   }
   transform(stud.begin(), stud.end(), back_inserter(grades), f);
   return median(grades); 
-}
-
-double median_analysis(const studFile& stud) {
-    doubleCont grades; 
-//     double f(const Student_info& s)
-    transform(stud.begin(), stud.end(), back_inserter(grades), grade_aux);
-    return median(grades);
-}
-
-double average_analysis(const studFile& stud){
-    doubleCont grades;  
-    transform(stud.begin(), stud.end(), back_inserter(grades), average_grade);
-    return median(grades);
-}
-
-double opt_median_analysis(const studFile& stud){
-  doubleCont grades;  
-  transform(stud.begin(), stud.end(), back_inserter(grades), opt_median);
-  return median(grades);
 }
 
 void  write_analysis (std::ostream & out, const analysisType anType, studFile& did, studFile& didnt) {

@@ -28,9 +28,9 @@ int main()
         /*string::size_type maxlen = */separate("test.txt", did, didnt);
         
         //do the analysis
-        write_analysis (cout, kmedian/*, median_analysis*/, did, didnt);
-        write_analysis (cout, kaverage/*, average_analysis*/, did, didnt);
-        write_analysis (cout, kopt_median/*, opt_median_analysis*/, did, didnt);
+        write_analysis (cout, kmedian, did, didnt);
+        write_analysis (cout, kaverage, did, didnt);
+        write_analysis (cout, kopt_median, did, didnt);
         return 0;
 }
 
@@ -41,7 +41,7 @@ string::size_type separate(string fname, studFile& did, studFile& didnt) {
     string::size_type maxlen = 0;
     
     while (read(file, record)) {
-            //find lengthoflongestname
+            //find leng th of longest name
             maxlen = max (maxlen, record.name.size());
             if (did_all_hw(record)) {
               did.push_back(record);
