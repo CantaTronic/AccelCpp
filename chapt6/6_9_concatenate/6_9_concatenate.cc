@@ -2,10 +2,13 @@
 #include <vector>
 #include <string>
 #include <fstream>
+#include <iostream>
 
 using std::vector;
 using std::string;
 using std::fstream;
+using std::cout;
+using std::endl;
 
 vector<string> getVectorFromFile(string fname){
     fstream file;
@@ -19,9 +22,15 @@ vector<string> getVectorFromFile(string fname){
     return ret;
 }
 
-int main (){
-	vector<string> my_vector = getVectorFromFile("test_vect_conc.txt");
-//         test_vect_conc.txt
+void printVec (const vector<string> & vect) {
+  /*Print out the vector*/
+    for (vector<string>::size_type i = 0; i != vect.size(); i++) {
+        cout<<vect[i]<<endl;
+    }
+}
 
-	return 0;
+int main (){
+    vector<string> my_vector = getVectorFromFile("test_vect_conc.txt");
+    printVec(my_vector);
+    return 0;
 }
