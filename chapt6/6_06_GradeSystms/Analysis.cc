@@ -41,14 +41,22 @@ void  write_analysis (std::ostream & out, const analysisType anType, studFile& d
 
 //add func for ex. 8, ch. 6
 studFile extract_fails(studFile& students){
-  studFile fail;
-  iter it = students.begin();
-  while(it != students.end()) {
-    if (fgrade(*it)){
-      fail.push_back(*it);
-      it = students.erase(it);
-    } else
-      it++;
-  }
-  return fail;
+//   studFile fail;
+//   iter it = students.begin();
+//   while(it != students.end()) {
+//     if (fgrade(*it)){
+//       fail.push_back(*it);
+//       it = students.erase(it);
+//     } else
+//       it++;
+//   }
+//   return fail;
+  return divide(students, pgrade);
+}
+
+//add more general separating function
+studFile divide(studFile& students, bool criteria (const Student_info& s)) {
+    studFile Pass;
+    remove_copy_if(students.begin(),students.end(), back_inserter(Pass), criteria);
+    return Pass;
 }

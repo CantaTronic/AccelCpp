@@ -34,9 +34,9 @@ int main()
         
         //test fails extraction
         studFile fails = extract_fails(did);
-        cout<<"==== Passed: ==== "<<endl;
-        printStudVec(did);
-        cout<<endl;
+//         cout<<"==== Passed: ==== "<<endl;
+//         printStudVec(did);
+//         cout<<endl;
         cout<<"==== Failed: ==== "<<endl;
         printStudVec(fails);
         return 0;
