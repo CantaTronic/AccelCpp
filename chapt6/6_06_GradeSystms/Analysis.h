@@ -11,6 +11,7 @@ using std::string;
 
 double full_analysis(const studFile& stud, analysisType anType = kmedian);
 void  write_analysis (std::ostream &, const analysisType anType, studFile& , studFile&);
+studFile extract_fails(studFile& students);
 
 #endif
  

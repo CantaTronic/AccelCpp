@@ -38,3 +38,17 @@ void  write_analysis (std::ostream & out, const analysisType anType, studFile& d
   }
   out<<"(did) = "<<full_analysis(did, anType)<<", \t(didn't) = "<<full_analysis(didnt, anType)<<endl;
 } 
+
+//add func for ex. 8, ch. 6
+studFile extract_fails(studFile& students){
+  studFile fail;
+  iter it = students.begin();
+  while(it != students.end()) {
+    if (fgrade(*it)){
+      fail.push_back(*it);
+      it = students.erase(it);
+    } else
+      it++;
+  }
+  return fail;
+}

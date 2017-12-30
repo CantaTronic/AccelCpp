@@ -31,6 +31,14 @@ int main()
         write_analysis (cout, kmedian, did, didnt);
         write_analysis (cout, kaverage, did, didnt);
         write_analysis (cout, kopt_median, did, didnt);
+        
+        //test fails extraction
+        studFile fails = extract_fails(did);
+        cout<<"==== Passed: ==== "<<endl;
+        printStudVec(did);
+        cout<<endl;
+        cout<<"==== Failed: ==== "<<endl;
+        printStudVec(fails);
         return 0;
 }
 
