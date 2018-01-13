@@ -1,0 +1,7 @@
+This is a test file for check out the 
+correctness of my 
+simple programm. 
+I add also a bit of repetition in that text, so 
+I would be able to check whether it is working good or not.
+This is simple code and simple test, but it is not about making 
+the text plane and stupid as a wood, ok?
