@@ -43,16 +43,30 @@ vector<string> split(const string & str) {
     }
     i = j;
   }
-
   return ret;
 }
 
-// map<string, vector<int> > xref (istream &in, vector<string> find_word(const &string) = split) {
-//   
-//   int line_number = 0;
-//   map<string, vector<int> > ret;
-//   
-// }
+map<string, vector<int> > xref (istream &in, vector<string> find_word(const string&) = split) {
+  string line;
+  int line_number = 0;
+  map<string, vector<int> > ret;
+  
+  //read input
+  while (getline(in, line)) {
+    //update line number
+    line_number++;
+    //break the line into words
+    vector<string> words = find_word(line);
+    
+    //associate each word with the line it was found in
+    for (vector<string>::const_iterator it = words.begin(); it != words.end(); it++) {
+      ret[*it].push_back(line_number);
+    }
+    
+    
+  }
+  return ret;
+}
 
 void test_isspase(){
   cout<<"'a' is NOT spase:"<<is_space('a')<<endl;
